@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Recieving</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.min.js"></script>
+</head>
+<body>
+
+    <input type="text" id="data" placeholder="Type Your Data here">
+    <button type="submit" onclick="SendData()">Submit</button>
+    <script>
+        const socket = io('https://clear-macaque-recently.ngrok-free.app');
+
+        function SendData(){
+            const Data = document.getElementById('data');
+            const msg = Data.value;
+            socket.emit('client-message', {data: msg});   
+            Data.value = '';  
+        }
+    </script>
+
+</body>
+</html>
