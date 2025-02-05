@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Data Recieving</title>
+
+    <!-- Adding The API for Acess for the Program to Acess the Socket IO Functionality-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.min.js"></script>
 </head>
 <body>
@@ -11,8 +13,10 @@
     <input type="text" id="data" placeholder="Type Your Data here">
     <button type="submit" onclick="SendData()">Submit</button>
     <script>
+        // Add Your Ngrok Link OR Custom Domain here which will be acessible To Global Audience
         const socket = io('https://clear-macaque-recently.ngrok-free.app');
 
+        // Making a Function to Send Data to The Server using Emit Function 
         function SendData(){
             const Data = document.getElementById('data');
             const msg = Data.value;

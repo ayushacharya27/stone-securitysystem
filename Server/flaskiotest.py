@@ -11,8 +11,11 @@ run_with_ngrok(app)
 def start_page():
     return render_template("index.html")
 
+# Here client-message is the event where client sends data to Server
 @socketio.on('client-message')
 def printMessage(msg):
+
+    # Dictionary data comes so we have to parse it to get the meaningful data from it
     print("Received Message: " + msg['data'])
 
 
